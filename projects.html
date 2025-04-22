@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link rel="stylesheet" type="text/css" href="sass/style.min.css">
+    <script src="script.js"></script>
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
 </head>
 <body>
     <header>
         <h1>My Projects</h1>
+        <div class="hamburger-menu" id="hamburger">
+            &#9776;
+        </div>        
         <nav>
             <ul>
                 <li><a href="index.html">About Me</a></li>
@@ -19,6 +27,22 @@
     </header>
 
     <main>
+
+        <noscript>
+            <p style="text-align: center; font-style: italic; font-size:15px;">JavaScript is disabled. Site might not load properly.</p>
+            <style>
+                nav ul {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    justify-content: space-around !important;
+                }
+        
+                .hamburger-menu {
+                    display: none !important;
+                }
+            </style>
+        </noscript>  
+
         <section>
             <h2>Selected Projects</h2>
             
@@ -26,7 +50,7 @@
                 <h3>Chinese Checkers (Java)</h3>
                 <p>This Java project was created by me and my friend. It is a digital version of the classic board game Chinese Checkers, where players aim to move all their marbles across the board to the opposite side before their opponents do.</p>
                 <p>The game supports different variants, including "Order Out of Chaos" and "Yin-Yang" modes, providing alternative gameplay styles. The implementation includes a turn-based system and an interactive graphical interface.</p>
-                <pre><code>
+                <pre><code class="language-java">
 public static Board createBoard(int marbles, int numOfPlayers, String variant, int seed) {
     return switch (variant) {
         case "order" -> new OrderBoardManager(marbles, numOfPlayers, seed);
@@ -46,7 +70,7 @@ public static Board createBoard(int marbles, int numOfPlayers, String variant, i
                 <h3>Hair Salon App (Java + MariaDB SQL)</h3>
                 <p>I developed this project using Java for the application logic and MariaDB SQL for data storage. It is designed to be a functional system for managing appointments in hair salons.</p>
                 <p>The application allows users to book appointments, view available time slots, and manage their reservations. Hairdressers can access their schedules and update appointment statuses. The system ensures smooth data handling through a well-structured database, making it efficient for real-world use.</p>
-                <pre><code>
+                <pre><code class="language-java">
 public static String addAppointment(Appointment appointment) {
     String query = "INSERT INTO appointments (date, time, hairdresser_id, status) VALUES (?, ?, ?, ?)";
     
@@ -75,7 +99,7 @@ public static String addAppointment(Appointment appointment) {
             <article>
                 <h3>Series News Website (HTML + CSS)</h3>
                 <p>This web project was developed by me and two of my friends. It is a website dedicated to TV series, providing users with the latest news, upcoming premiere dates, and rankings of the most popular productions. The goal was to create an engaging and informative platform for TV series enthusiasts.</p>
-                <pre><code>
+                <pre><code class="language-html">
 &lt;nav class="navbar navbar-expand-sm bg-dark navbar-dark"&gt;
     &lt;div class="container-fluid justify-content-center"&gt;
         &lt;ul class="navbar-nav"&gt;

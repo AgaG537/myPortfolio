@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hobbies</title>
     <link rel="stylesheet" type="text/css" href="sass/style.min.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
         <h1>My Hobbies</h1>
+        <div class="hamburger-menu" id="hamburger">
+            &#9776;
+        </div>        
         <nav>
             <ul>
                 <li><a href="index.html">About Me</a></li>
@@ -19,6 +23,22 @@
     </header>
 
     <main>
+
+        <noscript>
+            <p style="text-align: center; font-style: italic; font-size:15px;">JavaScript is disabled. Site might not load properly.</p>
+            <style>
+                nav ul {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    justify-content: space-around !important;
+                }
+        
+                .hamburger-menu {
+                    display: none !important;
+                }
+            </style>
+        </noscript>  
+
         <section>
             <h2>My Interests</h2>
 

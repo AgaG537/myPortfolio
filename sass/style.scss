@@ -21,18 +21,18 @@ body {
     min-height: 100vh;
     text-align: justify;
     text-justify: inter-word;
-    background-image: url("background9.jpg");
+    background-image: url("../images/background9.jpg");
     background-size: 100%;
 }
 
 header {
     background-color: $leading-background-color;
-    color: $additional-text-color;
     text-align: center;
+    color: $additional-text-color;
 }
 
 nav {
-    background: $additional-background-color;
+    background: lighten($additional-background-color, 1);
     ul {
         @include basic-setup();
         list-style: none;
@@ -98,11 +98,15 @@ footer {
     margin-top: auto;
 } 
 
-.image-group-2 {
+%flex-container {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.image-group-2 {
+    @extend %flex-container;
+    flex-direction: column;
 
     img {
         width: 90%;
@@ -110,9 +114,7 @@ footer {
 }
 
 .image-group-3 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    @extend %flex-container;
 
     img {
         width: 30%;
@@ -121,16 +123,6 @@ footer {
 
 .big-screens {
     display: none;
-}
-
-pre code {
-    background-color: #eee;
-    border: 1px solid #999;
-    display: block;
-    padding: 0px 10px;
-    margin: auto;
-    font-size: 15px;
-    text-wrap: wrap;
 }
 
 .mail {
@@ -177,10 +169,6 @@ pre code {
     img {
         margin: 15px auto;
     }
-
-    .image-group-2 img {
-        width: 70%;
-    }
 }
 
 @include responsive(large) {
@@ -201,5 +189,46 @@ pre code {
     }
     .big-screens {
         display: flex;
+    }
+}
+
+
+
+
+
+.hamburger-menu {
+    display: block;
+    font-size: 30px;
+    color: $additional-text-color;
+    padding: 5px 15px 15px 0px;
+    cursor: pointer;
+    float: right;
+}
+
+nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: lighten($additional-background-color, 1);
+    width: 100%;
+    text-align: center;
+
+    &.active {
+        display: flex;
+    }
+}
+
+@include responsive(small) {
+    nav ul {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .hamburger-menu {
+        display: none !important;
+    }
+
+    nav ul li {
+        padding: 0; // reset padding if needed
     }
 }
